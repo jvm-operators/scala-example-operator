@@ -1,8 +1,8 @@
 package io.radanalytics.operator.foo
 
+import io.fabric8.kubernetes.api.model.ConfigMap
 import io.fabric8.kubernetes.client.KubernetesClient
 import io.radanalytics.operator.common._
-import io.fabric8.kubernetes.api.model.ConfigMap
 import io.radanalytics.operator.resource.HasDataHelper
 import org.slf4j.{Logger, LoggerFactory}
 
