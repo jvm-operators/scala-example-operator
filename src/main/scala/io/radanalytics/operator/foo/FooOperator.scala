@@ -7,11 +7,11 @@ import io.radanalytics.operator.resource.HasDataHelper
 import org.slf4j.{Logger, LoggerFactory}
 
 @Operator(forKind = "foo", prefix = "radanalytics.io", infoClass = classOf[FooInfo])
-class IspnOperator extends AbstractOperator[FooInfo] {
+class FooOperator extends AbstractOperator[FooInfo] {
   val log: Logger = LoggerFactory.getLogger(classOf[FooInfo].getName)
 
   @Override
-  def onAdd(foo: FooInfo)= {
+  def onAdd(foo: FooInfo) = {
     log.info(s"created foo with name ${foo.name} and someParameter = ${foo.someParameter}")
   }
 
