@@ -6,23 +6,23 @@ import io.radanalytics.operator.common._
 import io.radanalytics.operator.resource.HasDataHelper
 import org.slf4j.{Logger, LoggerFactory}
 
-@Operator(forKind = "foo", prefix = "radanalytics.io", infoClass = classOf[FooInfo])
-class FooOperator extends AbstractOperator[FooInfo] {
-  val log: Logger = LoggerFactory.getLogger(classOf[FooInfo].getName)
+@Operator(forKind = classOf[Foo], prefix = "radanalytics.io")
+class FooOperator extends AbstractOperator[Foo] {
+  val log: Logger = LoggerFactory.getLogger(classOf[Foo].getName)
 
   @Override
-  def onAdd(foo: FooInfo) = {
+  def onAdd(foo: Foo) = {
     log.info(s"created foo with name ${foo.name} and someParameter = ${foo.someParameter}")
   }
 
   @Override
-  def onDelete(foo: FooInfo) = {
+  def onDelete(foo: Foo) = {
     log.info(s"deleted foo with name ${foo.name} and someParameter = ${foo.someParameter}")
   }
 }
 
 
-class FooInfo(var name: String, var someParameter: String) extends EntityInfo {
+class Foo(var name: String, var someParameter: String) extends EntityInfo {
   def this() = this("", "")
   def getName = name
   def setName(name: String) = this.name = name
